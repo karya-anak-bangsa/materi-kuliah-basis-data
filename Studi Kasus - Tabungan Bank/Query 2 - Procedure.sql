@@ -27,6 +27,8 @@ create procedure procedure_transaksi(
     in p_tanggal datetime
 )
 begin
+	
+	-- variabel untuk update saldo rekening
     declare v_saldo_lama decimal(15,2);
     declare v_saldo_baru decimal(15,2);
 

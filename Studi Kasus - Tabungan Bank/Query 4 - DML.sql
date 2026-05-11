@@ -1,8 +1,8 @@
 # -------------------------------------------------------------
 # query dml
 # -------------------------------------------------------------
-use db_basis_data_tabungan;
 
+use db_basis_data_tabungan;
 
 truncate table tb_nasabah;
 truncate table tb_rekening;
@@ -16,7 +16,7 @@ select * from tb_transaksi;
 
 -- cek hasil akhir
 select * from tb_rekening where nomor_rekening = 'rk-004';
-select * from tb_buku_tabungan where nomor_rekening = 'rk-004';
+select * from tb_buku_tabungan where nomor_rekening = 'rk-004' order by tanggal desc;
 
 insert into tb_nasabah (id_nasabah, nama_nasabah, gender, tempat_lahir, tanggal_lahir, pendidikan, pekerjaan, penghasilan, status_nasabah)
 	values
@@ -37,7 +37,10 @@ insert into tb_transaksi (id_transaksi, nomor_rekening, tanggal_transaksi, jenis
 	values ('tr-001', 'rk-004', now(), 'setor', 200000, 'berhasil');
 
 insert into tb_transaksi (id_transaksi, nomor_rekening, tanggal_transaksi, jenis_transaksi, nominal, status_transaksi)
-	values ('tr-002', 'rk-004', now(), 'tarik', 50000, 'berhasil');
+	values ('tr-002', 'rk-004', now(), 'setor', 100000, 'berhasil');
+
+insert into tb_transaksi (id_transaksi, nomor_rekening, tanggal_transaksi, jenis_transaksi, nominal, status_transaksi)
+	values ('tr-003', 'rk-004', now(), 'tarik', 50000, 'berhasil');
 
 
 # -------------------------------------------------------------
